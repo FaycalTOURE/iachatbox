@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+
+  frontend:
+    build: ./frontend      # ✅ On construit l'image ici
+    ports:
+      - "8501:8501"
+    depends_on: 
+      - backend
+    command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+

@@ -1,0 +1,111 @@
+{
+  "intents": [
+    {
+      "tag": "salutation",
+      "patterns": ["Bonjour", "Salut", "Bonsoir", "Hey", "Coucou"],
+      "responses": [
+        "Bonjour 👋, bienvenue sur l’assistant Parcoursup ! Comment puis-je vous aider aujourd’hui ?",
+        "Salut ! Je suis votre assistant Parcoursup. Vous avez une question sur l’inscription ou les formations ?",
+        "Bonjour ! Dites-moi comment je peux vous accompagner dans vos démarches Parcoursup."
+      ]
+    },
+    {
+      "tag": "inscription",
+      "patterns": [
+        "Comment m’inscrire sur Parcoursup ?",
+        "Je veux créer mon compte Parcoursup",
+        "C’est quand les inscriptions Parcoursup ?",
+        "Comment fonctionne l’inscription ?"
+      ],
+      "responses": [
+        "L’inscription sur Parcoursup se fait directement sur le site officiel [www.parcoursup.gn](https://www.parcoursup.gn). Vous devez créer un compte, renseigner vos informations personnelles et formuler vos vœux avant la date limite.",
+        "Pour vous inscrire, connectez-vous sur le site Parcoursup, cliquez sur « Créer mon dossier », puis suivez les étapes indiquées. N’oubliez pas de valider votre adresse mail."
+      ]
+    },
+    {
+      "tag": "voeux",
+      "patterns": [
+        "Comment formuler mes vœux ?",
+        "Combien de vœux puis-je faire ?",
+        "Quelle est la différence entre vœux et sous-vœux ?",
+        "Puis-je modifier mes vœux ?"
+      ],
+      "responses": [
+        "Vous pouvez formuler jusqu’à **10 vœux principaux** sans ordre de préférence, et certains peuvent comporter des **sous-vœux** selon la formation.",
+        "Les vœux se formulent directement dans votre espace Parcoursup, en recherchant les formations souhaitées.",
+        "Vous pouvez modifier ou supprimer vos vœux jusqu’à la date limite fixée par Parcoursup."
+      ]
+    },
+    {
+      "tag": "parcoursup_pro",
+      "patterns": [
+        "C’est quoi Parcoursup Pro ?",
+        "Quelle est la différence entre Parcoursup et Parcoursup Pro ?",
+        "Je cherche une formation professionnelle",
+        "Comment postuler à une Licence Professionnelle ou un BTS ?"
+      ],
+      "responses": [
+        "Parcoursup Pro concerne les formations à visée professionnelle : BTS, BUT, Licences Professionnelles, écoles spécialisées, etc.",
+        "Si vous recherchez une formation plus orientée vers la pratique et l’emploi, Parcoursup Pro est adapté. Vous y trouverez toutes les formations professionnelles reconnues par l’État."
+      ]
+    },
+    {
+      "tag": "documents",
+      "patterns": [
+        "Quels documents faut-il pour s’inscrire ?",
+        "Quels papiers dois-je fournir sur Parcoursup ?",
+        "Est-ce qu’il faut un relevé de notes ?"
+      ],
+      "responses": [
+        "Vous aurez besoin de votre numéro INE, de vos relevés de notes (première et terminale), d’une adresse mail valide et de votre pièce d’identité.",
+        "Certains dossiers exigent aussi des lettres de motivation ou des CV, selon les formations demandées."
+      ]
+    },
+    {
+      "tag": "admission",
+      "patterns": [
+        "Quand aurai-je les résultats ?",
+        "Comment savoir si je suis accepté ?",
+        "Que faire si je ne reçois pas de réponse ?"
+      ],
+      "responses": [
+        "Les réponses des formations sont communiquées à partir de **juin**, directement dans votre espace Parcoursup.",
+        "Vous serez informé si vous êtes **accepté, en attente ou refusé**. Si vous n’obtenez aucune proposition, vous pouvez participer à la phase complémentaire."
+      ]
+    },
+    {
+      "tag": "phase_complementaire",
+      "patterns": [
+        "C’est quoi la phase complémentaire ?",
+        "Comment participer à la phase complémentaire ?",
+        "Si je n’ai pas été pris, que faire ?"
+      ],
+      "responses": [
+        "La phase complémentaire permet aux candidats sans proposition d’admission de formuler de nouveaux vœux sur les places restantes.",
+        "Elle débute généralement en **juin** et se déroule jusqu’en **septembre**."
+      ]
+    },
+    {
+      "tag": "contact_aide",
+      "patterns": [
+        "Comment contacter le support Parcoursup ?",
+        "J’ai un problème de connexion",
+        "Je veux parler à un conseiller Parcoursup"
+      ],
+      "responses": [
+        "Vous pouvez contacter le support via la rubrique **Contact** sur le site [www.parcoursup.gn](https://www.parcoursup.gn).",
+        "Le numéro vert Parcoursup est le 625 79 99 06 (service et appel gratuits)."
+      ]
+    },
+    {
+      "tag": "au_revoir",
+      "patterns": ["Merci", "Au revoir", "Bye", "Bonne journée"],
+      "responses": [
+        "Merci à vous et bonne chance pour vos démarches sur Parcoursup 👋",
+        "Bonne journée et à bientôt sur Parcoursup !"
+      ]
+    }
+  ]
+}
+
+

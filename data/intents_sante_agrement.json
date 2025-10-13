@@ -1,0 +1,138 @@
+{
+  "intents": [
+    {
+      "tag": "salutation",
+      "patterns": ["Bonjour", "Salut", "Bonsoir", "Hey", "Coucou"],
+      "responses": [
+        "Bonjour 👋, bienvenue sur l’assistant du Ministère de la Santé. Comment puis-je vous aider dans votre démarche d’agrément ?",
+        "Salut ! Je suis votre assistant dédié aux **demandes d’agrément** du Ministère de la Santé. Quelle est votre question ?",
+        "Bonjour et bienvenue. Je peux vous aider à comprendre les étapes, les documents requis ou le suivi de votre demande d’agrément."
+      ]
+    },
+    {
+      "tag": "definition_agrement",
+      "patterns": [
+        "C’est quoi un agrément ?",
+        "Que signifie obtenir un agrément ?",
+        "Pourquoi faut-il un agrément du ministère ?"
+      ],
+      "responses": [
+        "Un **agrément** est une autorisation officielle délivrée par le Ministère de la Santé, permettant à un établissement, un laboratoire ou un professionnel d’exercer une activité réglementée dans le domaine de la santé.",
+        "L’agrément garantit que les normes sanitaires, techniques et éthiques sont respectées."
+      ]
+    },
+    {
+      "tag": "type_agrement",
+      "patterns": [
+        "Quels sont les types d’agrément ?",
+        "Quelles structures doivent être agréées ?",
+        "Y a-t-il plusieurs types d’agrément ?"
+      ],
+      "responses": [
+        "Oui, il existe plusieurs types d’agréments :",
+        "- **Agrément pour les laboratoires d’analyses médicales**,",
+        "- **Agrément pour les établissements privés de santé**,",
+        "- **Agrément pour les pharmacies ou dépôts pharmaceutiques**,",
+        "- **Agrément pour les écoles ou centres de formation en santé**."
+      ]
+    },
+    {
+      "tag": "demande_agrement",
+      "patterns": [
+        "Comment faire une demande d’agrément ?",
+        "Où déposer ma demande d’agrément ?",
+        "Je veux demander un agrément"
+      ],
+      "responses": [
+        "La demande d’agrément se fait auprès de la **Direction des Établissements Privés de Santé (DEPS)** ou via la plateforme officielle du Ministère de la Santé.",
+        "Vous devez constituer un dossier complet comprenant les documents administratifs, techniques et juridiques selon le type d’activité."
+      ]
+    },
+    {
+      "tag": "documents_requis",
+      "patterns": [
+        "Quels sont les documents à fournir ?",
+        "Quels papiers faut-il pour un agrément ?",
+        "Quelles pièces sont nécessaires ?"
+      ],
+      "responses": [
+        "Les documents varient selon la structure, mais en général, il faut :",
+        "- Une **lettre de demande adressée au Ministre de la Santé**,",
+        "- Le **registre de commerce** ou statut juridique,",
+        "- Le **plan architectural** des locaux,",
+        "- Les **diplômes et CV du personnel médical**,",
+        "- Un **rapport d’inspection sanitaire préalable**."
+      ]
+    },
+    {
+      "tag": "delai_traitement",
+      "patterns": [
+        "Combien de temps pour obtenir un agrément ?",
+        "Quel est le délai de traitement ?",
+        "En combien de jours on reçoit la réponse ?"
+      ],
+      "responses": [
+        "Le délai de traitement dépend du type d’agrément et de la complétude du dossier, mais il faut généralement compter **30 à 60 jours ouvrables**.",
+        "Un accusé de réception vous est transmis après le dépôt du dossier, suivi d’une visite d’inspection avant validation."
+      ]
+    },
+    {
+      "tag": "suivi_dossier",
+      "patterns": [
+        "Comment suivre ma demande ?",
+        "Où en est mon dossier d’agrément ?",
+        "Je veux savoir si mon agrément est validé"
+      ],
+      "responses": [
+        "Vous pouvez suivre votre dossier directement sur la **plateforme en ligne du ministère**, ou contacter la **Direction des Établissements Privés de Santé (DEPS)**.",
+        "Munissez-vous de votre **numéro de dossier** ou de l’accusé de réception pour tout suivi."
+      ]
+    },
+    {
+      "tag": "renouvellement",
+      "patterns": [
+        "Mon agrément est expiré",
+        "Comment renouveler mon agrément ?",
+        "Quel est le délai de validité d’un agrément ?"
+      ],
+      "responses": [
+        "L’agrément est généralement valable pour une durée de **3 à 5 ans**, selon le type d’établissement.",
+        "Pour le renouveler, vous devez soumettre une **nouvelle demande de renouvellement** au moins **3 mois avant la date d’expiration**, accompagnée d’un rapport d’activité et d’un certificat de conformité."
+      ]
+    },
+    {
+      "tag": "rejet_dossier",
+      "patterns": [
+        "Pourquoi mon dossier a été rejeté ?",
+        "Que faire si ma demande est refusée ?",
+        "Mon dossier n’a pas été accepté"
+      ],
+      "responses": [
+        "Le rejet peut être dû à un **dossier incomplet**, **non-conformité aux normes sanitaires** ou **absence de pièces justificatives**.",
+        "Vous pouvez déposer une **demande de révision** après avoir corrigé les irrégularités signalées par la commission d’agrément."
+      ]
+    },
+    {
+      "tag": "contact_ministere",
+      "patterns": [
+        "Comment contacter le ministère ?",
+        "Quel est le contact du ministère de la santé ?",
+        "Je veux parler à un agent du ministère"
+      ],
+      "responses": [
+        "Vous pouvez contacter le **Ministère de la Santé et de l’Hygiène Publique** via :",
+        "- Le **standard téléphonique officiel**,",
+        "- Le **site web du ministère**, rubrique *Contact*.",
+        "Vous pouvez aussi écrire un mail à la **Direction des Établissements Privés de Santé (DEPS)** pour toute question liée aux agréments."
+      ]
+    },
+    {
+      "tag": "au_revoir",
+      "patterns": ["Merci", "Au revoir", "Bonne journée", "À bientôt"],
+      "responses": [
+        "Merci à vous. Je reste disponible pour toute autre demande d’information 🩺",
+        "Bonne journée et bon courage dans vos démarches administratives 👋"
+      ]
+    }
+  ]
+}

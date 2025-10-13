@@ -1,0 +1,10 @@
+spacy
+nltk
+scikit-learn
+pandas
+numpy
+streamlit
+requests
+fastapi
+uvicorn
+pydantic
