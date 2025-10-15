@@ -1,66 +1,49 @@
-import os
-import json
+import psycopg2
 import random
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
-# --- Fonction pour charger les intentions selon le domaine ---
-def load_intents(domain):
-    base_dir = "C:/Users/h p/chatbox-ia/data"
+# Connexion à la base PostgreSQL
+def get_connection():
+    conn = psycopg2.connect(
+        host="localhost",
+        database="postgres",
+        user="postgres",
+        password="admin"
+    )
+    conn.set_client_encoding('UTF8')
+    return conn
 
-    # Association entre domaine et fichier JSON
-    mapping = {
-        "parcoursup": "intents_parcoursup.json",
-        "sante": "intents_sante_agrement.json",
-        "default": "intents_parcoursup.json"  # fichier par défaut si domaine inconnu
-    }
+# Charger les données depuis la table "intents"
+def load_intents_from_db(domain):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT tag, pattern, response FROM intents WHERE domaine = %s", (domain,))
+    rows = cur.fetchall()
+    conn.close()
 
-    # Choisir le bon fichier selon le domaine
-    file_name = mapping.get(domain.lower(), mapping["default"])
-    data_path = os.path.join(base_dir, file_name)
+    patterns = [r[1] for r in rows]
+    tags = [r[0] for r in rows]
+    responses = {}
+    for tag, _, response in rows:
+        responses.setdefault(tag, []).append(response)
 
-    # Vérification du fichier
-    if not os.path.exists(data_path):
-        raise FileNotFoundError(f"Fichier introuvable pour le domaine '{domain}' : {data_path}")
+    return patterns, tags, responses
 
-    # Chargement du fichier JSON
-    with open(data_path, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-# --- Fonction pour entraîner le modèle selon le domaine ---
-def train_model(domain):
-    data = load_intents(domain)
-    patterns, tags = [], []
-
-    # Extraire les données (patterns et tags)
-    for intent in data["intents"]:
-        for pattern in intent["patterns"]:
-            patterns.append(pattern)
-            tags.append(intent["tag"])
-
-    # Créer le modèle TF-IDF et la régression logistique
+# Entraîner le modèle à partir des données en BD
+def train_model_db(domain):
+    patterns, tags, responses = load_intents_from_db(domain)
     vectorizer = TfidfVectorizer()
     X = vectorizer.fit_transform(patterns)
-    y = tags
-
     model = LogisticRegression()
-    model.fit(X, y)
+    model.fit(X, tags)
+    return model, vectorizer, responses
 
-    return model, vectorizer, data
-
-# --- Fonction principale de prédiction ---
-def predict_intent(text, domain="default"):
-    # Entraînement du modèle pour le domaine choisi
-    model, vectorizer, data = train_model(domain)
-
-    # Transformation du texte et prédiction
+# Fonction principale de prédiction
+def predict_intent_db(text, domain="parcoursup"):
+    model, vectorizer, responses = train_model_db(domain)
     X_test = vectorizer.transform([text])
-    intent = model.predict(X_test)[0]
+    predicted_tag = model.predict(X_test)[0]
+    return random.choice(responses.get(predicted_tag, ["Je n’ai pas compris, reformulez svp. 🤔"]))
 
-    # Chercher une réponse associée à l’intention prédite
-    for i in data["intents"]:
-        if i["tag"] == intent:
-            return random.choice(i["responses"])
 
-    # Si aucune correspondance trouvée
-    return "Je n’ai pas bien compris, pouvez-vous reformuler ? 🤔"

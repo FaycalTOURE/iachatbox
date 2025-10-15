@@ -1,13 +1,13 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from model import predict_intent
+from model import predict_intent_db as predict_intent
 
 app = FastAPI()
 
-# Définition du schéma des données en entrée
+# Définition du schéma des données envoyées au backend
 class Message(BaseModel):
     text: str
-    domain: str  # On ajoute le champ "domain" pour savoir quel chatbot utiliser
+    domain: str
 
 @app.get("/")
 def root():
@@ -15,7 +15,6 @@ def root():
 
 @app.post("/predict")
 def get_response(msg: Message):
-    # On passe aussi le domaine au modèle
     response = predict_intent(msg.text, msg.domain)
     return {"response": response}
 
