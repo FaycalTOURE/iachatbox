@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from model import predict_intent_db as predict_intent
+from model import predict_intent_db
 
 app = FastAPI()
 
@@ -15,7 +15,8 @@ def root():
 
 @app.post("/predict")
 def get_response(msg: Message):
-    response = predict_intent(msg.text, msg.domain)
+    print(msg)
+    response = predict_intent_db(msg.text, msg.domain)
     return {"response": response}
 
 if __name__ == "__main__":
